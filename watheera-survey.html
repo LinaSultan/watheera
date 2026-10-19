@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WATHEERA Survey · استبيان وثيرة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2A3D;--green:#0E7C66;--amber:#F2A93B;--red:#D64545;--mist:#E9EEF0;--ink:#2B3238}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:Cairo,Tahoma,Arial,sans-serif;color:var(--ink);overflow:hidden;background:linear-gradient(#0a1c2a,#0F2A3D 45%,#1d4a66);padding-top:env(safe-area-inset-top,0px)}
+.st{position:fixed;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3s infinite}
+@keyframes tw{50%{opacity:.25}}
+.moon{position:fixed;top:9%;inset-inline-start:10%;width:56px;height:56px;border-radius:50%;background:#F6E3A1;box-shadow:inset -8px -4px 0 #e9cf85,0 0 40px #f6e3a155}
+.scene{position:fixed;left:0;bottom:56px;width:100%;height:30vh;direction:ltr}
+.road{position:fixed;left:0;right:0;bottom:0;height:56px;background:var(--ink);border-top:4px solid #111b22;overflow:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
+.road i{position:absolute;top:24px;height:6px;width:40px;background:var(--amber);border-radius:3px;animation:l 2.4s linear infinite}
+@keyframes l{to{transform:translateX(-140px)}}
+#car{position:fixed;bottom:44px;width:150px;direction:ltr;transition:left 1.2s ease,transform .3s}
+.top{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));inset-inline-end:10px;display:flex;gap:8px;z-index:9}
+.top button{font-family:inherit;font-weight:700;font-size:13px;color:#fff;background:#ffffff1f;border:1.5px solid #ffffff55;border-radius:99px;padding:6px 14px;cursor:pointer;backdrop-filter:blur(6px)}
+#win{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:54px 12px 110px;z-index:5;pointer-events:none}
+#win>*{pointer-events:auto}
+.hero{text-align:center;color:#fff;animation:up .5s}
+.hero h1{font-family:Montserrat,sans-serif;font-size:clamp(44px,13vw,92px);margin:0;letter-spacing:2px;-webkit-text-stroke:2px #0a1c2a;paint-order:stroke fill;text-shadow:0 5px 0 #0a1c2a}
+.hero p{font-size:clamp(15px,4vw,20px);margin:6px 0 22px;color:#cfe3ee}
+.go,.pill{font-family:inherit;font-weight:900;font-size:16px;border:0;border-radius:99px;padding:10px 24px;cursor:pointer}
+.go{background:var(--amber);color:var(--navy);font-size:20px;padding:14px 34px;box-shadow:0 6px 0 #b9761a;animation:pu 1.6s infinite}
+@keyframes pu{50%{transform:scale(1.05)}}
+.go:active{transform:translateY(4px);box-shadow:0 2px 0 #b9761a}
+.card{width:min(480px,100%);max-height:100%;display:flex;flex-direction:column;background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 18px 50px #000a;animation:up .35s}
+@keyframes up{from{transform:translateY(22px);opacity:0}}
+.hd{display:flex;align-items:center;gap:12px;background:var(--navy);color:#fff;padding:10px 16px}
+.hd.g{background:var(--green)}.hd small{display:block;color:#9fc3d6;font-size:12px}.hd.g small{color:#cdeee4}.hd b{font-size:18px}
+.ring{width:46px;height:46px;background:#fff;border-radius:50%;flex:none}
+.ill{background:var(--mist);padding:6px 0;text-align:center;flex:none}.ill svg{height:84px;max-width:100%}
+.bd{padding:6px 18px 12px;overflow:auto;flex:1}.bd p{font-size:14px;line-height:1.7;margin:8px 0}
+.q{margin:14px 0 8px;font-weight:900;font-size:15px;line-height:1.6}.q small{font-weight:500;color:#789}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font-family:inherit;font-weight:700;font-size:14px;padding:8px 16px;background:#fff;border:2px solid #c8d3d9;border-radius:99px;cursor:pointer;color:var(--ink)}
+.opt:hover{border-color:var(--amber)}
+.opt.on{background:var(--green);border-color:var(--green);color:#fff}.opt.on.m::before{content:"✓ "}
+.scale{display:flex;gap:6px;direction:ltr}.scale .opt{flex:1;font-size:22px;padding:6px 0;border-radius:14px}
+.ends{display:flex;justify-content:space-between;font-size:12px;color:#789;margin-top:5px}
+input[type=text],textarea{width:100%;font-family:inherit;font-size:15px;padding:9px 12px;border:2px solid #c8d3d9;border-radius:14px;background:#fafcfd}
+input:focus,textarea:focus{outline:0;border-color:var(--green)}textarea{min-height:70px;resize:vertical}
+.ft{display:flex;justify-content:space-between;gap:10px;padding:10px 16px;background:var(--mist)}
+.pill.g{background:var(--green);color:#fff}.pill.w{background:#fff;color:var(--navy);border:2px solid #c8d3d9}.pill:disabled{opacity:.4;cursor:not-allowed}
+.note{color:var(--green);font-weight:700}.ans{list-style:none;padding:0;margin:8px 0;font-size:13px;line-height:1.7}.ans li{border-bottom:1px dashed #c8d3d9;padding:4px 0}
+</style>
+</head>
+<body>
+<div class="moon"></div>
+<svg class="scene" viewBox="0 0 1000 200" preserveAspectRatio="none"><g fill="#16384f"><rect x="560" y="90" width="40" height="110"/><rect x="610" y="60" width="34" height="140"/><rect x="655" y="100" width="40" height="100"/><path d="M780 200V60q0-30 14-50 14 20 14 50v140z"/><rect x="830" y="80" width="46" height="120"/></g><path d="M0 200V150q120-60 260-20t250-10v80z" fill="#8a6a3f"/><path d="M300 200v-30q200-50 420-10t280-20v60z" fill="#a8814b"/><g transform="translate(70 40)"><path d="M26 150q4-50 12-110" stroke="#6b4a26" stroke-width="7" fill="none"/><path d="M38 40q-30-24-62-8 30-4 62 8zM38 40q30-26 62-10-30-2-62 10zM38 40q-6-34 14-52-8 28-14 52zM38 40q-34-8-52 14 28-14 52-14zM38 40q30-4 48 18-26-18-48-18z" fill="#0E7C66"/></g></svg>
+<div class="road"><script>for(var i=0;i<12;i++)document.write('<i style="left:'+i*140+'px"></i>')</script></div>
+<svg id="car" viewBox="0 0 150 40"><defs><linearGradient id="hl"><stop offset="0" stop-color="#F2A93B" stop-opacity=".55"/><stop offset="1" stop-color="#F2A93B" stop-opacity="0"/></linearGradient></defs><path d="M94 24l56-9v22z" fill="url(#hl)"/><path d="M4 28V20c0-3 2-5 5-5h10l8-9h24l10 9h12c4 0 6 3 6 6v7z" fill="#0E7C66" stroke="#0a1c2a" stroke-width="3" stroke-linejoin="round"/><path d="M30 10h16l7 7H24z" fill="#bfe8f5" stroke="#0a1c2a" stroke-width="2.5"/><circle cx="24" cy="30" r="8" fill="#2B3238" stroke="#0a1c2a" stroke-width="3"/><circle cx="68" cy="30" r="8" fill="#2B3238" stroke="#0a1c2a" stroke-width="3"/><circle cx="24" cy="30" r="3" fill="#E9EEF0"/><circle cx="68" cy="30" r="3" fill="#E9EEF0"/><path d="M42 3a8 8 0 0 1 12 0M45 7a4 4 0 0 1 6 0" stroke="#3ddbb0" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+<div class="top"><button id="about"></button><button id="lang"></button></div>
+<div id="win"></div>
+<script>
+for(let i=0;i<46;i++){const s=document.createElement('div');s.className='st';s.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*50+'%;animation-delay:'+Math.random()*3+'s';document.body.prepend(s)}
+const b=(ar,en)=>({ar,en});
+const UI={
+ icon1:b('اضغط هنا','Click here'),icon2:b('إجاباتي','My answers'),about:b('★ عن وثيرة','★ About'),lang:b('English 🌐','عربي 🌐'),
+ next:b('التالي','Next'),back:b('رجوع','Back'),send:b('إرسال','Submit'),ok:b('موافق','Agree'),close:b('إغلاق','Close'),
+ step:b('الخطوة','Step'),opt:b('(اختياري)','(optional)'),
+ aboutT:b('عن وثيرة','About WATHEERA'),
+ aboutP:b('وثيرة تطبيق جوال يحوّل هاتفك إلى صندوق أسود ذكي لأي سيارة، بلا أي أجهزة إضافية. ثلاث طبقات حماية: وقاية (تنبيهات فورية بدون إنترنت)، توثيق (تقرير حادث مختوم ضد التلاعب)، ومتابعة (لوحة ولي الأمر وإشعار SOS). هذا الاستبيان جزء من مشروع تخرج في جامعة جدة، ويستغرق نحو 4 دقائق.','WATHEERA is a mobile app that turns your phone into a smart black box for any car, with no added hardware. Three layers: Prevent (instant offline alerts), Document (a tamper-evident crash report) and Monitor (guardian dashboard and SOS). This survey is part of a graduation project at the University of Jeddah and takes about 4 minutes.'),
+ welT:b('رسالة جديدة','New message'),
+ welH:b('وصلتك رسالة من فريق وثيرة 🚗','You have a message from the WATHEERA team 🚗'),
+ welP:b('رأيك يساعدنا نبني تطبيق يخلّي الطرق أكثر أمانًا. إجاباتك سرّية وتُستخدم لأغراض البحث فقط، وبالضغط على «موافق» فإنك توافق على المشاركة.','Your opinion helps us build an app that makes roads safer. Answers are confidential and used for research only. By pressing "Agree" you consent to take part.'),
+ doneT:b('فريق وثيرة 💚','WATHEERA team 💚'),
+ doneH:b('شكرًا لك! 🛣️','Thank you! 🛣️'),
+ doneP:b('رأيك صار جزءًا من وثيرة، وبفضلك نقرّب خطوة من طرق أكثر أمانًا في كل سيارة بالمملكة.','Your voice is now part of WATHEERA. Thanks to you we are a step closer to safer roads for every car in Saudi Arabia.'),
+ saved:b('تم حفظ إجاباتك ✓','Your answers were saved ✓'),fail:b('تعذّر الحفظ على الخادم. يمكنك تنزيل نسخة من إجاباتك أدناه.','Could not save to the server. You can download a copy below.'),
+ dl:b('تنزيل إجاباتي','Download my answers'),share:b('أرسل لصديق','Share with a friend')
+};
+const yn=[b('نعم','Yes'),b('لا','No')];
+const S=[
+{t:b('عرّفنا عليك','About you'),qs:[
+ {id:'nick',k:'text',q:b('الاسم (يقبل اسمًا مستعارًا)','Name (a nickname is fine)'),opt:1},
+ {id:'age',k:'one',q:b('العمر','Age'),o:[b('أقل من 18','Under 18'),b('18–24','18–24'),b('25–34','25–34'),b('35–49','35–49'),b('50+','50+')]},
+ {id:'gender',k:'one',q:b('الجنس','Gender'),o:[b('ذكر','Male'),b('أنثى','Female')]},
+ {id:'role',k:'one',q:b('علاقتك بالقيادة','Your link to driving'),o:[b('أقود سيارة','I drive'),b('أحد أفراد أسرتي يقود','A family member drives'),b('لدي سائق خاص','I employ a private driver'),b('راكب فقط','Passenger only')]}]},
+{t:b('الطريق اليوم','Roads today'),qs:[
+ {id:'accident',k:'one',q:b('هل تعرضت أنت أو أحد المقربين لحادث مروري؟','Have you or someone close been in a road accident?'),o:[b('نعم','Yes'),b('لا','No'),b('أفضّل عدم الإجابة','Prefer not to say')]},
+ {id:'fault',k:'scale',q:b('تحديد المخطئ في الحوادث اليوم يعتمد غالبًا على التقدير وأقوال الشهود بدل أدلة موضوعية.','Fault today is mostly decided by estimates and witness statements, not objective evidence.'),lo:b('لا أوافق بشدة','Strongly disagree'),hi:b('أوافق بشدة','Strongly agree')},
+ {id:'assist',k:'one',q:b('هل في سيارتك تنبيهات مساعدة للسائق (مثل تنبيه الاصطدام أو الحارة)؟','Does your car have driver-assistance warnings (collision or lane alerts)?'),o:[b('نعم','Yes'),b('لا','No'),b('لا أعرف','Not sure')]},
+ {id:'phone',k:'one',q:b('كم مرة تستخدم جوالك أثناء القيادة؟','How often do you use your phone while driving?'),o:[b('أبدًا','Never'),b('أحيانًا','Sometimes'),b('غالبًا','Often'),b('دائمًا','Always')]},
+ {id:'tools',k:'multi',q:b('ما الذي تستخدمه حاليًا؟','What do you use today?'),o:[b('Life360','Life360'),b('نجم','Najm'),b('تطبيق تأمين (مثل تعاونية درايف)','Insurance app (e.g. Tawuniya Drive)'),b('كاميرا داش كام','Dashcam'),b('لا شيء','Nothing')]}]},
+{t:b('وقاية','Prevent'),qs:[
+ {id:'alerts',k:'scale',q:b('هل تستخدم تطبيقًا ينبّهك صوتيًا وبصريًا عند السرعة الزائدة أو الفرملة العنيفة؟','Would you use an app that warns you by sound and visuals about speeding or harsh braking?'),lo:b('لا إطلاقًا','Not at all'),hi:b('بالتأكيد','Definitely')},
+ {id:'atype',k:'multi',q:b('أي نوع تنبيه تفضّل؟','Which alert style do you prefer?'),o:[b('صوت منطوق','Spoken voice'),b('نغمة','Beep'),b('تنبيه على الشاشة','On-screen'),b('اهتزاز','Vibration')]},
+ {id:'place',k:'one',q:b('أين تضع جوالك غالبًا أثناء القيادة؟','Where is your phone usually while driving?'),o:[b('في حامل','In a holder'),b('على المقعد','On the seat'),b('في الجيب أو الشنطة','Pocket or bag'),b('في يدي','In my hand')]},
+ {id:'offline',k:'scale',q:b('أهمية أن تعمل التنبيهات بدون إنترنت.','How important is it that alerts work without internet?'),lo:b('غير مهم','Not important'),hi:b('مهم جدًا','Very important')}]},
+{t:b('توثيق','Document'),qs:[
+ {id:'report',k:'scale',q:b('هل تثق بتقرير حادث يُنشأ تلقائيًا ومختوم ضد التلاعب لتقدّمه لنجم أو شركة التأمين؟','Would you trust an automatic tamper-evident crash report to give to Najm or your insurer?'),lo:b('لا أثق','No trust'),hi:b('أثق تمامًا','Full trust')},
+ {id:'najm',k:'one',q:b('هل استخدمت تطبيق نجم من قبل؟','Have you used the Najm app?'),o:[b('نعم','Yes'),b('لا','No')]},
+ {id:'wait',k:'one',q:b('عند اكتشاف حادث، التطبيق يسألك «هل أنت بخير؟» قبل إرسال المساعدة. كم ثانية تنتظر؟','After a detected crash the app asks "Are you OK?" before sending help. How long should it wait?'),o:[b('10 ثوانٍ','10 s'),b('20 ثانية','20 s'),b('30 ثانية','30 s'),b('60 ثانية','60 s')]},
+ {id:'false',k:'one',q:b('كيف تتقبّل إنذارًا كاذبًا من وقت لآخر (مثل سقوط الجوال)؟','How do you feel about an occasional false alarm (e.g. a dropped phone)?'),o:[b('لا أقبله','Unacceptable'),b('مرة في الشهر مقبول','Once a month is fine'),b('أفضّل الأمان حتى لو تكرر','Safety first, even if frequent')]}]},
+{t:b('متابعة وخصوصية','Monitor & privacy'),qs:[
+ {id:'guardian',k:'one',q:b('هل تسمح لولي أمر أو فرد من أسرتك بمتابعة رحلاتك بموافقتك؟','Would you let a family guardian see your trips, with your consent?'),o:[b('نعم','Yes'),b('بشروط','With conditions'),b('لا','No')]},
+ {id:'novice',k:'one',q:b('هل لديك سائق مبتدئ أو سائق خاص تودّ متابعته؟','Is there a novice or private driver you would like to monitor?'),o:yn},
+ {id:'see',k:'multi',q:b('ما الذي يحق للمتابِع رؤيته؟','What may the guardian see?'),o:[b('ملخص الرحلات','Trip summaries'),b('السلوكيات الخطرة','Risky events'),b('درجة الأمان','Safety score'),b('الموقع المباشر','Live location'),b('إشعار SOS فقط','SOS only')]},
+ {id:'worry',k:'multi',q:b('ما أكثر ما يقلقك؟','What worries you most?'),o:[b('تتبّع الموقع','Location tracking'),b('استهلاك البطارية','Battery use'),b('مشاركة البيانات مع التأمين','Data shared with insurers'),b('دقة الاكتشاف','Detection accuracy'),b('التكلفة','Cost')]},
+ {id:'use',k:'scale',q:b('هل ستستخدم وثيرة إذا كان مجانيًا ويعمل في أي سيارة؟','Would you use WATHEERA if it were free and worked in any car?'),lo:b('لا','No'),hi:b('نعم بالتأكيد','Yes, definitely')},
+ {id:'idea',k:'long',q:b('أي اقتراح أو ميزة تتمنى وجودها؟','Any suggestion or feature you wish for?'),opt:1}]}
+];
+
+Object.assign(UI,{start:b('شغّل المحرك 🔑','Start the engine 🔑'),tag:b('قيادة أكثر أمانًا، لكل سيارة في المملكة','Safer driving, for every car in Saudi Arabia'),cp:b('نقطة التفتيش','Checkpoint'),arr:b('وصلت بسلامة ✓','Arrived safely ✓'),hi:b('أهلًا بك على متن وثيرة!','Welcome aboard WATHEERA!'),consent:b('بالمتابعة فإنك توافق على المشاركة. إجاباتك سرية وللبحث فقط.','By continuing you agree to take part. Your answers are confidential and for research only.'),view:b('إجاباتي','My answers')});
+const ILL=[
+'<svg viewBox="0 0 200 80"><circle cx="100" cy="44" r="30" fill="none" stroke="#0F2A3D" stroke-width="9"/><circle cx="100" cy="44" r="7" fill="#F2A93B" stroke="#0F2A3D" stroke-width="3"/><path d="M72 50l21-3M128 50l-21-3M100 74V52" stroke="#0F2A3D" stroke-width="7" stroke-linecap="round"/><path d="M30 18l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#F2A93B"/><path d="M165 14l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="#0E7C66"/></svg>',
+'<svg viewBox="0 0 200 80"><rect width="200" height="80" fill="#9bd7ea"/><circle cx="165" cy="20" r="11" fill="#F2A93B" stroke="#0F2A3D" stroke-width="2.5"/><path d="M0 50q40-18 90-4t110-2v40H0z" fill="#f1d49a"/><rect y="54" width="200" height="20" fill="#3a444c"/><path d="M8 64h16M48 64h16M88 64h16M128 64h16M168 64h16" stroke="#F2A93B" stroke-width="3"/><g transform="translate(80 38)"><path d="M2 18v-6c0-2 1-3 3-3h6l5-6h16l6 6h8c2 0 3 2 3 4v5z" fill="#0E7C66" stroke="#0F2A3D" stroke-width="2.2" stroke-linejoin="round"/><circle cx="14" cy="19" r="5" fill="#2B3238" stroke="#0F2A3D" stroke-width="2"/><circle cx="42" cy="19" r="5" fill="#2B3238" stroke="#0F2A3D" stroke-width="2"/></g></svg>',
+'<svg viewBox="0 0 200 80"><rect x="76" y="3" width="48" height="74" rx="9" fill="#fff" stroke="#0F2A3D" stroke-width="3"/><path d="M100 14l14 5v10c0 9-6 15-14 18-8-3-14-9-14-18V19z" fill="#0E7C66" stroke="#0F2A3D" stroke-width="2.5"/><path d="M93 30l5 5 9-10" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/><text x="100" y="64" text-anchor="middle" font-size="14" font-weight="800" fill="#0F2A3D">92</text><path d="M60 28q-8 12 0 24M50 22q-14 18 0 36M140 28q8 12 0 24M150 22q14 18 0 36" stroke="#F2A93B" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>',
+'<svg viewBox="0 0 200 80"><g fill="#fff" stroke="#0F2A3D" stroke-width="2.5"><rect x="14" y="28" width="46" height="44" rx="6"/><rect x="77" y="28" width="46" height="44" rx="6"/><rect x="140" y="28" width="46" height="44" rx="6"/></g><g stroke="#F2A93B" stroke-width="4" fill="none"><circle cx="66" cy="50" r="4"/><circle cx="71" cy="50" r="4"/><circle cx="129" cy="50" r="4"/><circle cx="134" cy="50" r="4"/></g><g stroke="#cfd8dc" stroke-width="3" stroke-linecap="round"><path d="M22 38h30M22 46h30M85 38h30M85 46h30M148 38h30M148 46h30"/></g><g fill="#0E7C66" font-size="8" font-weight="700" font-family="monospace" text-anchor="middle"><text x="37" y="64">7c2e</text><text x="100" y="64">a3f9</text><text x="163" y="64">e08b</text></g><rect x="90" y="9" width="20" height="14" rx="3" fill="#F2A93B" stroke="#0F2A3D" stroke-width="2.5"/><path d="M94 9V6a6 6 0 0 1 12 0v3" fill="none" stroke="#0F2A3D" stroke-width="2.5"/></svg>',
+'<svg viewBox="0 0 200 80"><path d="M25 80c0-18 13-26 30-26s30 8 30 26z" fill="#0F2A3D"/><circle cx="55" cy="34" r="21" fill="#0E7C66" stroke="#0F2A3D" stroke-width="2.5"/><circle cx="55" cy="36" r="12" fill="#e9b88a"/><circle cx="51" cy="35" r="1.6" fill="#0F2A3D"/><circle cx="59" cy="35" r="1.6" fill="#0F2A3D"/><path d="M51 41q4 3 8 0" stroke="#0F2A3D" stroke-width="1.5" fill="none"/><rect x="96" y="8" width="84" height="38" rx="7" fill="#fff" stroke="#0F2A3D" stroke-width="2.5"/><path d="M104 36q12-18 28-8t30-14" stroke="#0E7C66" stroke-width="2.5" stroke-dasharray="4 3" fill="none"/><circle cx="104" cy="36" r="2.5" fill="#0F2A3D"/><circle cx="165" cy="16" r="4" fill="#D64545"/><circle cx="162" cy="62" r="14" fill="#D64545" stroke="#0F2A3D" stroke-width="2.5"/><text x="162" y="66" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">SOS</text></svg>'];
+let lang='ar',step=-1,A={},sent=null,showAns=false,aboutOpen=false;
+const $=s=>document.querySelector(s),T=o=>o[lang];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const total=S.reduce((n,s)=>n+s.qs.length,0);
+const has=v=>v!==undefined&&v!==''&&!(Array.isArray(v)&&!v.length);
+const pct=()=>{let n=0;S.forEach(s=>s.qs.forEach(q=>{if(has(A[q.id]))n++}));return Math.round(n/total*100)};
+const valid=s=>S[s].qs.every(q=>q.opt||has(A[q.id]));
+function ring(p){const c=2*Math.PI*16;return '<svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#dbe3e7" stroke-width="5"/><circle cx="20" cy="20" r="16" fill="none" stroke="#0E7C66" stroke-width="5" stroke-linecap="round" stroke-dasharray="'+(c*p/100)+' '+c+'" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-size="11" font-weight="800" fill="#0F2A3D">'+p+'</text></svg>'}
+function qHTML(q){
+ let h='<div class="q">'+T(q.q)+(q.opt?' <small>'+T(UI.opt)+'</small>':'')+'</div>';
+ if(q.k=='text')return h+'<input type="text" data-id="'+q.id+'" value="'+esc(A[q.id]||'')+'">';
+ if(q.k=='long')return h+'<textarea data-id="'+q.id+'">'+esc(A[q.id]||'')+'</textarea>';
+ if(q.k=='scale'){return h+'<div class="scale">'+['😟','🙁','😐','🙂','😍'].map((e,i)=>'<button class="opt'+(A[q.id]==i+1?' on':'')+'" data-id="'+q.id+'" data-v="'+(i+1)+'">'+e+'</button>').join('')+'</div><div class="ends"><span>'+T(q.lo)+'</span><span>'+T(q.hi)+'</span></div>'}
+ const m=q.k=='multi';
+ return h+'<div class="opts">'+q.o.map((o,i)=>{const on=m?(A[q.id]||[]).includes(i):A[q.id]===i;return '<button class="opt'+(on?' on':'')+(m?' m':'')+'" data-id="'+q.id+'" data-i="'+i+'" data-m="'+(m?1:0)+'">'+T(o)+'</button>'}).join('')+'</div>'}
+function readable(){const r=[];S.forEach(s=>s.qs.forEach(q=>{let v=A[q.id];if(!has(v))return;if(q.k=='one')v=T(q.o[v]);else if(q.k=='multi')v=v.map(i=>T(q.o[i])).join('، ');r.push([T(q.q),String(v)])}));return r}
+function car(){const p=step<0?0:step>=S.length?100:pct(),f=lang=='ar',c=$('#car');c.style.left='calc((100% - 150px) * '+((f?100-p:p)/100)+')';c.style.transform=f?'scaleX(-1)':'none'}
+function render(){
+ document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
+ $('#lang').textContent=T(UI.lang);$('#about').textContent=T(UI.about);car();
+ const w=$('#win');
+ if(aboutOpen){w.innerHTML='<div class="card"><div class="hd"><div><b>'+T(UI.aboutT)+'</b></div></div><div class="ill">'+ILL[2]+'</div><div class="bd"><p>'+T(UI.aboutP)+'</p></div><div class="ft"><span></span><button class="pill g" id="cl">'+T(UI.close)+'</button></div></div>'}
+ else if(step<0){w.innerHTML='<div class="hero"><h1>WATHEERA</h1><p>'+T(UI.tag)+'</p><button class="go" id="go">'+T(UI.start)+'</button></div>'}
+ else if(step<S.length){const s=S[step];
+  w.innerHTML='<div class="card"><div class="hd">'+ring(pct())+'<div><small>'+T(UI.cp)+' '+(step+1)+'/'+S.length+'</small><b>'+T(s.t)+'</b></div></div><div class="ill">'+ILL[step]+'</div><div class="bd">'+(step==0?'<p><b>'+T(UI.hi)+'</b> '+T(UI.consent)+'</p>':'')+s.qs.map(qHTML).join('')+'</div><div class="ft">'+(step?'<button class="pill w" id="bk">'+T(UI.back)+'</button>':'<span></span>')+'<button class="pill g" id="nx"'+(valid(step)?'':' disabled')+'>'+T(step==S.length-1?UI.send:UI.next)+'</button></div></div>'}
+ else{w.innerHTML='<div class="card"><div class="hd g">'+ring(100)+'<div><small>'+T(UI.arr)+'</small><b>'+T(UI.doneH)+'</b></div></div><div class="ill">'+ILL[1]+'</div><div class="bd"><p>'+T(UI.doneP)+'</p>'+(sent?'<p class="note">'+T(sent=='ok'?UI.saved:UI.fail)+'</p>':'')+(sent=='fail'?'<button class="pill w" id="dl">'+T(UI.dl)+'</button>':'')+(showAns?'<ul class="ans">'+readable().map(r=>'<li><b>'+esc(r[0])+'</b><br>'+esc(r[1])+'</li>').join('')+'</ul>':'')+'</div><div class="ft"><button class="pill w" id="va">'+T(UI.view)+'</button><button class="pill g" id="sh">'+T(UI.share)+'</button></div></div>'}
+ bind()}
+function bind(){
+ document.querySelectorAll('.opt').forEach(el=>el.onclick=()=>{const id=el.dataset.id;
+  if(el.dataset.v)A[id]=+el.dataset.v;
+  else if(el.dataset.m=='1'){const a=A[id]||[],i=+el.dataset.i;A[id]=a.includes(i)?a.filter(x=>x!=i):[...a,i]}
+  else A[id]=+el.dataset.i;
+  const y=$('.bd').scrollTop;render();$('.bd').scrollTop=y});
+ document.querySelectorAll('input[type=text],textarea').forEach(el=>el.oninput=()=>{A[el.dataset.id]=el.value;const n=$('#nx');if(n)n.disabled=!valid(step)});
+ const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
+ on('#go',()=>{step=0;render()});
+ on('#nx',()=>{if(step==S.length-1)submit();else{step++;render()}});
+ on('#bk',()=>{step--;render()});
+ on('#cl',()=>{aboutOpen=false;render()});
+ on('#va',()=>{showAns=!showAns;render()});
+ on('#sh',()=>{const u=location.href;if(navigator.share)navigator.share({title:'WATHEERA',url:u}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(u).catch(()=>{})});
+ on('#dl',async()=>{try{const d=await claude.use('downloads');if(d)await d.save({filename:'watheera-answers.json',data:JSON.stringify({lang,answers:A},null,2)})}catch(e){}})}
+async function submit(){
+ const rec={ts:new Date().toISOString(),lang,answers:A};step=S.length;sent=null;render();
+ try{const db=await claude.use('db');if(!db)throw 0;
+  await db.collection('responses').doc(Date.now().toString(36)+Math.random().toString(36).slice(2,7)).set(rec);sent='ok'}catch(e){sent='fail'}
+ render()}
+$('#lang').onclick=()=>{lang=lang=='ar'?'en':'ar';render()};
+$('#about').onclick=()=>{aboutOpen=true;render()};
+render();
+</script>
+</body>
+</html>
